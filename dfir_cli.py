@@ -289,7 +289,7 @@ def lookup(indicator, as_json):
     elif itype == "domain":
         data = api_get("/domain/lookup", params={"domain": indicator})
     else:
-        data = api_get("/copilot/investigate", method="POST", json={"query": indicator})
+        data = api_get("/copilot/investigate", params={"q": indicator})
 
     if as_json:
         click.echo(json.dumps(data, indent=2))
